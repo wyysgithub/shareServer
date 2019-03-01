@@ -7,85 +7,10 @@ html
         link(rel='stylesheet', href= basePath + '/stylesheets/style.css')
         block page_style
     body(ng-app="app",ng-controller="mainController").layui-layout-body
-        div.layui-layout.layui-layout-admin
-            div.layui-header
-                div.layui-logo
-                    h1 #{title}
 
-                ul.layui-nav.layui-layout-left
-                    li.layui-nav-item
-                        a(href="/") 首页
-                    li.layui-nav-item
-                        a(href="javascript:;") 管理
-                        dl.layui-nav-child
-                            dd
-                                a(href="javascript:;") 二级
+        block content
 
 
-                ul.layui-nav.layui-layout-right
-                    li.layui-nav-item
-                        a(href="javascript:;")
-                            img(src="//t.cn/RCzsdCq").layui-nav-img
-                            | 我
-                        dl.layui-nav-child
-                            dd
-                                a(href="javascript:;") 二级
-                    li.layui-nav-item
-                        a(href="javascript:;") 二级
-
-            div.layui-side.layui-bg-black
-                div.layui-side-scroll
-                    ul.layui-nav.layui-nav-tree
-                        //- layui-nav-itemed 为默认展开
-                        li.layui-nav-item
-                            a(href="/") 首页
-                        li.layui-nav-item.layui-nav-itemed
-                            a 会员管理
-                            dl.layui-nav-child
-                                dd
-                                    a(href="javascript:;") 会员列表
-                                dd
-                                    a(href="javascript:;") 会员积分
-                        li.layui-nav-item
-                            a 资源管理
-                            dl.layui-nav-child
-                                dd
-                                    a(href="javascript:;") 资源分类
-                                dd
-                                    a(href="javascript:;") 资源列表
-                        li.layui-nav-item
-                            a 帖子管理
-                            dl.layui-nav-child
-                                dd
-                                    a(href="javascript:;") 帖子分类
-                                dd
-                                    a(href="javascript:;") 帖子列表
-                        li.layui-nav-item
-                            a 文章管理
-                            dl.layui-nav-child
-                                dd
-                                    a(href="javascript:;") 文章分类
-                                dd
-                                    a(href="javascript:;") 文章列表
-                        li.layui-nav-item
-                            a 系统设置
-                            dl.layui-nav-child
-                                dd
-                                    a(href="javascript:;") banner管理
-                                dd
-                                    a(href="javascript:;") 用户反馈
-                                dd
-                                    a(href="javascript:;") 系统通知
-                                dd
-                                    a(href="javascript:;") 参数设置
-
-
-
-            div.layui-body
-                block content
-
-            div.layui-footer
-                | 2019-02-07 WANGYANGYANG
         script(src=basePath + '/thirdParty/angular.1.6.9/angular.min.js')
         script(src=basePath + '/thirdParty/layui/layui.js')
         script(type='text/javascript', src=basePath + '/javascripts/main.js')

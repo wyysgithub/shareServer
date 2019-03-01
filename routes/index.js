@@ -15,7 +15,7 @@ var router = express.Router();
 
 module.exports = function (app) {
 
-    var home = require('../apis/ArticleType');
+    var home = require('../apis/Home');
     app.use('/', home);
 
     var usersRouter = require('../routes/users');

@@ -1,7 +1,10 @@
 
 app.controller("articleController",function ($scope,httpService) {
-    layui.use('laypage', function(){
+    layui.use(['laypage','jquery'], function(){
         var laypage = layui.laypage;
+        var $ = layui.$;
+        $("dl.layui-nav-child a:contains('文章列表')").parent('dd').addClass("layui-this").parent('dl').parent("li").addClass('layui-nav-itemed');
+
         var count;
         $scope.getArticleList = function (page,limit) {
             $scope.page = page || 1;
