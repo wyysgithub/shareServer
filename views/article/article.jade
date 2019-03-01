@@ -1,0 +1,46 @@
+extends ../layout
+
+block content
+    div(ng-controller="articleController").layui-container
+        div.layui-form.layui-col-space10
+            div.layui-input-inline
+                button.layui-btn
+                    i.layui-icon &#xe608;
+                    | 添加
+            div.layui-input-inline
+                select
+                    option 选择
+            div.layui-input-inline
+                select
+                    option 选择
+        //h2 #{title}
+        table.layui-table
+            thead
+                tr
+                    th 序号
+                    th 分类
+                    th 标题
+                    th 作者
+                    th 内容
+                    th 状态
+                    th 添加时间
+                    th 操作
+            tbody
+                tr(ng-repeat="a in articleList")
+                    td(ng-bind="$index+1")
+                    td(ng-bind="a.type_name")
+                    td(ng-bind="a.article_name")
+                    td(ng-bind="a.author")
+                    td(ng-bind="a.article_content")
+                    td(ng-bind="MainStatus[a.status]")
+                    td(ng-bind="a.create_time | date:'yyyy-MM-dd HH:mm:ss'")
+                    td
+                        button.layui-btn.layui-btn-sm.layui-btn-primary 修改
+                        button(ng-class="{true:'',false:'layui-btn-disabled'}[a.status==3]").layui-btn.layui-btn-sm 上架
+                        button(ng-class="{true:'',false:'layui-btn-disabled'}[a.status==5]").layui-btn.layui-btn-sm.layui-btn-danger 下架
+        div#paging
+
+
+
+block page_script
+    script(type='text/javascript', src=basePath + '/javascripts/article.js')

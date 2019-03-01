@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+    div(ng-controller="articleController").layui-container
+        div.layui-form.layui-col-space10
+            div.layui-input-inline
+                input(required,placeholder="请输入分类名",ng-model="typeName").layui-input
+            div.layui-input-inline
+                button(ng-click="addArticleType(typeName)").layui-btn 添加
+
+        //h3 #{title}
+        table.layui-table
+            thead
+                tr
+                    th 序号
+                    th ID
+                    th 名称
+                    th 状态
+                    th 添加时间
+                    th 操作
+            tbody
+                tr(ng-repeat="a in articleTypeList")
+                    td(ng-bind="$index+1")
+                    td(ng-bind="a.type_id")
+                    td(ng-show="a.isUpdate")
+                        input(ng-model="a.type_name").layui-input
+                    td(ng-show="!a.isUpdate",ng-bind="a.type_name")
+                    td(ng-bind="MainStatus[a.status]")
+                    td(ng-bind="a.create_time | date:'yyyy-MM-dd HH:mm:ss'")
+                    td
+                        button(ng-click="a.isUpdate=true").layui-btn.layui-btn-sm.layui-btn-primary 修改
+                        button(ng-class="{true:'',false:'layui-btn-disabled'}[a.isUpdate==true]",ng-click="updateArticleType(a.type_id,5,a.type_name);a.isUpdate=false").layui-btn.layui-btn-sm 保存
+                        button(ng-class="{true:'',false:'layui-btn-disabled'}[a.status==3||a.status==6]",ng-click="updateArticleType(a.type_id,5)").layui-btn.layui-btn-sm 上架
+                        button(ng-class="{true:'',false:'layui-btn-disabled'}[a.status==5]",ng-click="updateArticleType(a.type_id,6)").layui-btn.layui-btn-sm.layui-btn-danger 下架
+        div#paging
+
+
+
+block page_script
+    script(type='text/javascript', src=basePath + '/javascripts/articleType.js')
