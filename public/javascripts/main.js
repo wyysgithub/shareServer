@@ -132,5 +132,8 @@ app.controller('mainController', function ($scope) {
         4: "已驳回",
         5: "已上架",
         6: "已下架"
+    };
+    $scope.replaceTo = function (url) {
+        location.href = basePath + url;
     }
 })

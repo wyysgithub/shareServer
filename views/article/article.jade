@@ -4,7 +4,7 @@ block content
     div(ng-controller="articleController")
         div.layui-form.layui-col-space10
             div.layui-input-inline
-                button.layui-btn
+                button(ng-click="replaceTo('/article/articleAdd')").layui-btn
                     i.layui-icon &#xe608;
                     | 添加
             div.layui-input-inline
@@ -35,7 +35,7 @@ block content
                     td(ng-bind="MainStatus[a.status]")
                     td(ng-bind="a.create_time | date:'yyyy-MM-dd HH:mm:ss'")
                     td
-                        button.layui-btn.layui-btn-sm.layui-btn-primary 修改
+                        button(ng-click="replaceTo('/article/articleAdd')").layui-btn.layui-btn-sm.layui-btn-primary 修改
                         button(ng-class="{true:'',false:'layui-btn-disabled'}[a.status==3]").layui-btn.layui-btn-sm 上架
                         button(ng-class="{true:'',false:'layui-btn-disabled'}[a.status==5]").layui-btn.layui-btn-sm.layui-btn-danger 下架
         div#paging

@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+    div(ng-controller="articleController")
+        div.layui-form
+            button(onClick="history.back()").layui-btn
+                i.layui-icon &#xe65c;
+        form(name="articleAddFrom",ng-submit="saveArticle()").layui-form
+            div.layui-form-item
+                label.layui-form-label 标题：
+                div.layui-input-block
+                    input(type="text",ng-model="articleInfo.name",placeholder="请输入标题",required).layui-input
+            div.layui-form-item
+                label.layui-form-label 来源：
+                div.layui-input-block
+                    input(type="text",ng-model="articleInfo.author",placeholder="请输入来源",required).layui-input
+            div.layui-form-item
+                label.layui-form-label 分类：
+                div.layui-input-block
+                    select(lay-filter="articleType")
+                        option(value='') --请选择--
+                        option(ng-repeat="t in articleTypeList",value="{{t.type_id}}") {{t.type_name}}
+            div.layui-form-item.layui-form-text
+                label.layui-form-label 内容：
+                div.layui-input-block
+                    textarea(placeholder="请输入内容",ng-model="articleInfo.content",required).layui-textarea
+            div.layui-form-item
+                div.layui-input-block
+                    input(type="submit",value="提交",ng-class="{true:'layui-btn-disabled',false:''}[!articleAddFrom.$valid]").layui-btn
+                    input(type="reset",value="重置").layui-btn.layui-btn-primary
+
+
+
+
+block page_script
+    script(type='text/javascript', src=basePath + '/javascripts/article.js')

@@ -55,7 +55,6 @@ router.post("/saveOrUpdate",function (req , res) {
 
     var sql_update_status = "update article_type set status =" + status + setTypeName + " where type_id = " + typeId;
 
-    console.log(sql_update_status)
 
     if(optType ===1){
         db.query(sql_save, function (err, result, filed) {
