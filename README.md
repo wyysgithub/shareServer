@@ -3,3 +3,7 @@
 
 #### Node.js 框架用的 Express , 模板引擎为 jade
 #### Angualr 版本1.6.9
+
+# 数据库
+
+#### 根目录 test.sql
